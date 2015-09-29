@@ -1,0 +1,21 @@
+body{
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+
+    background-image: linear-gradient(to bottom, #d0edf5, #e1e5f0 100%);
+}
+
+h1{
+	text-align: center;
+}
+
+#disclaimer{
+	background-image: linear-gradient(to bottom, #FF3333, #FF3333 100%);
+}
+
+#notes a{
+	font-size: 12px;
+	vertical-align: text-top;
+	text-decoration: none;
+}
