@@ -138,7 +138,13 @@ QR codes are placed in disposable items, to warn about a certain condition or to
 <p>To generate a QR code, type your text on the text box below and click enter</p>
 
 
-<p><input id="text" type="text" value="http://mdpnp.org" style="width:100%" />
+<p><input id="text" type="text" value="http://mdpnp.org" style="width:80%" /> <br/>
+<select id="sizeoption">
+	<option value="64">64 x 64</option>
+	<option value="128">128 x 128</option>
+	<option value="256">256 x 256</option>
+</select>
+select the size of the image
 </p>
 
 <div id="qrcode"></div>
@@ -151,22 +157,47 @@ QR codes are placed in disposable items, to warn about a certain condition or to
 // var qrCode = new QRCode("qrcode");
 $(document).ready(function() {
 
+	// console.log($('sizeoption').val());
+	var DEFAULT_QRCODE_SIZE = 128;
+
    // var qrCode = new QRCode("qrcode", $('#text').val());
-   var qrCode = new QRCode("qrcode", {
-    text:  $('#text').val(),
-    width: 128,
-    height: 128,
-    colorDark : "#000000",
-    colorLight : "#ffffff",
-    correctLevel : QRCode.CorrectLevel.H
-});
+   qrCodeObjectProperties = {
+   		text:  $('#text').val(),
+	    width: $('#sizeoption').val(),
+	    height: $('#sizeoption').val(),
+	    colorDark : "#000000",
+	    colorLight : "#ffffff",
+	    correctLevel : QRCode.CorrectLevel.H
+   }
+   qrCode = new QRCode("qrcode", qrCodeObjectProperties);
+
+   //on introducing more text on the field
    $('#text').keypress(function (e) {
-	  if (e.which == 13) {//detect 'enter' event
+	  // if (e.which == 13) {//detect 'enter' event
 	    qrCode.clear();
 	    qrCode.makeCode($('#text').val()); // make another code.
-
-	  }
+	  // }
    });
+
+   $('#sizeoption').change(function (e) {
+   	e.preventDefault();
+   	qrCodeObjectProperties = {
+   		text:  $('#text').val(),
+	    width: $('#sizeoption').val(),
+	    height: $('#sizeoption').val(),
+	    colorDark : "#000000",
+	    colorLight : "#ffffff",
+	    correctLevel : QRCode.CorrectLevel.H
+   }
+   // =Diego on 09/29/2015 For some reason I still haven't figured out yet, .clear() does not 
+   // work properly to clear the canvas created on the div (so the img of the QR code is not 'resizing').
+   //I am using jQuery to manually clear the content of the div and then place a new qrcode img. 
+    // qrCode.clear();  
+    // qrCode.makeCode(qrCodeObjectProperties);
+    $('#qrcode').empty();
+    qrCode = new QRCode("qrcode", qrCodeObjectProperties);
+   });
+
 });
 </script>
 
