@@ -6,10 +6,11 @@
 </head>
 <body>
 
-<!-- scrips -->
+<!-- scripts -->
 <!-- http://davidshimjs.github.io/qrcodejs/ -->
-<script type="text/javascript" src="./assets/libs/qrcode.js"></script>
-<!-- <script type="text/javascript" src="jquery.qrcode.min.js"></script> -->
+<!-- <script type="text/javascript" src="./assets/libs/qrcode.js"></script> -->
+<script type="text/javascript" src="./assets/libs/qrcode.min.js"></script>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.js"></script>
 <!-- handlebars -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.3/handlebars.min.js"></script>
@@ -143,13 +144,16 @@ QR codes are placed in disposable items, to warn about a certain condition or to
 <p><input id="text" type="text" value="http://mdpnp.org" style="width:80%" /> <br/>
 <select id="sizeoption">
 	<option value="64">64 x 64</option>
-	<option value="128">128 x 128</option>
+	<option value="128" selected>128 x 128</option>
 	<option value="256">256 x 256</option>
 </select>
 select the size of the image
 </p>
 
 <div id="qrcode"></div>
+
+<p> You can <em>right click</em> the generated QR code image and <em>save (it) as</em> to create a "sticker" to attach to your medical devices and link to useful resources. 
+</p>
 
 
 
@@ -165,8 +169,8 @@ $(document).ready(function() {
    // var qrCode = new QRCode("qrcode", $('#text').val());
    qrCodeObjectProperties = {
    		text:  $('#text').val(),
-	    width: $('#sizeoption').val(),
-	    height: $('#sizeoption').val(),
+	    width: $('#sizeoption').val(), //DEFAULT_QRCODE_SIZE,
+	    height: $('#sizeoption').val(), //DEFAULT_QRCODE_SIZE,
 	    colorDark : "#000000",
 	    colorLight : "#ffffff",
 	    correctLevel : QRCode.CorrectLevel.H
@@ -181,6 +185,7 @@ $(document).ready(function() {
 	  // }
    });
 
+   //On chaging the select-size option
    $('#sizeoption').change(function (e) {
    	e.preventDefault();
    	qrCodeObjectProperties = {
