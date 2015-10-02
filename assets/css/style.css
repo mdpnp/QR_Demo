@@ -10,6 +10,11 @@ h1{
 	text-align: center;
 }
 
+.minih1{
+	font-size: 16px;
+	vertical-align: middle;
+}
+
 #disclaimer{
 	background-image: linear-gradient(to bottom, #FF3333, #FF8080 100%);
 	border-radius: 5px;
