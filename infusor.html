@@ -3,17 +3,21 @@
 <head>
 <link rel="stylesheet" type="text/css" href="assets/css/style.css" media="screen" />
 	<title>MD PnP Infusor QR Code Demonstration</title>
+
+<!-- jquery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.js"></script>
+<!-- handlebars -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.3/handlebars.min.js"></script>
+<script src="assets/templates/disclaimer.tmpl.js"></script>
+
 </head>
 <body>
 
-<h1>Welcome to the Fictional Rapid Infuser Point-of-Care [concept demo] resources page</h1>
 
-<div id="disclaimer">
-	<h2>Disclaimer</h2>
-	<p>You probably have reached this website through a link (QR code or otherwise) from the MD PnP's <a href="./index.html">QR Codes for Medical Device Point-of-Care Product Information demo</a>.</p>
+<h1>Welcome to the Fictional Rapid Infuser Point-of-Care resources page</h1>
+<h2>(Concept Demo)</h2>
 
-	<p>This web page has been created for demonstration purporses only and does not substitute nor intents to substitute any manufacturer or vendor official resources pages. Any medical device manufacturer's resources used or linked here are publicly available and used for demonstration purporses only. By using any product or resource form a specific manufacturer or vendor we intent no misrepresentation of the capabilities of any mentioned resource or product. Manufacturers and/or medical devices may have been chosen based on either completely random criteria or availability of public resources for this demo.</p>
-</div>
+<span id="disclaimerplaceholder"></span>
 
 <h2>List of resources</h2>
 	<ol>
@@ -23,4 +27,20 @@
 	</ol>
 
 </body>
+
+<!-- =scripts -->
+<script type="text/javascript">
+$(document).ready(function() {
+	//complile handlebars template
+	// var source   = $("#disclaimer-template").html();
+	// var template = Handlebars.compile(source);
+	var template = Handlebars.templates['disclaimer.tmpl'];
+
+	$('#disclaimerplaceholder').append(template);
+
+});
+	
+</script>
+
+
 </html>
