@@ -53,7 +53,7 @@ QR codes could be attached to medical devices to point to online resources (i.e.
 
 <h3>Use Cases</h3>
 
-<p>These are some examples based on information currently publicly available on the Internet</p>
+<p>Examples of information currently publicly available on the Internet:</p>
 	<span><b>Example 1</b></span> <br/>
 	Shiley tracheostomy tube <a href="http://www.covidien.com/rms/imageServer.aspx?contentID=23689&contenttype=application/pdf&originalFileName=Shiley%20QRG%2010AW0162.pdf" target="_blank">quick reference guide</a>
 
@@ -81,7 +81,7 @@ QR codes could be attached to medical devices to point to online resources (i.e.
 
 
 
-<h4>Examples from Massachusetts General Hospital, MD PnP Lab</h4>
+<h4>Examples of Use Cases from Massachusetts General Hospital, MD PnP Lab</h4>
 
 <span><b>Scenario 1: Rapid Transfusion System</b></span><br/>
 
@@ -142,12 +142,13 @@ QR codes are placed in disposable items, to warn about a certain condition or to
 
 
 <p><input id="text" type="text" value="http://mdpnp.org" style="width:80%" /> <br/>
+select the size of the image
 <select id="sizeoption">
 	<option value="64">64 x 64</option>
 	<option value="128" selected>128 x 128</option>
 	<option value="256">256 x 256</option>
 </select>
-select the size of the image
+
 </p>
 
 <div id="qrcode"></div>
@@ -163,7 +164,6 @@ select the size of the image
 // var qrCode = new QRCode("qrcode");
 $(document).ready(function() {
 
-	// console.log($('sizeoption').val());
 	var DEFAULT_QRCODE_SIZE = 128;
 
    // var qrCode = new QRCode("qrcode", $('#text').val());
@@ -178,8 +178,8 @@ $(document).ready(function() {
    qrCode = new QRCode("qrcode", qrCodeObjectProperties);
 
    //on introducing more text on the field
-   $('#text').keypress(function (e) {
-	  // if (e.which == 13) {//detect 'enter' event
+   $('#text').keydown(function (e) {
+	  // if (e.which == 13) {//detect 'enter' event 8 is Backspace (https://css-tricks.com/snippets/javascript/javascript-keycodes/)
 	    qrCode.clear();
 	    qrCode.makeCode($('#text').val()); // make another code.
 	  // }

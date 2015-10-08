@@ -24,7 +24,7 @@ NOTES
 
 If needed to [re-compile the Handlebars templates][2],
 * tempaltes are located in assets/templates so `$ cd assets/templates`
-* use command $ handlebars templateName.tmpl -f templateName.tmpl.js
+* use command `$ handlebars templateName.tmpl -f templateName.tmpl.js`
 
 [1]: www.mdpnp.org
 [2]: http://handlebarsjs.com/precompilation.html
