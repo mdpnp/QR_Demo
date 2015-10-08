@@ -80,9 +80,15 @@ QR codes could be attached to medical devices to point to online resources (i.e.
 </p>
 
 
-
 <h4>Examples of Use Cases from Massachusetts General Hospital, MD PnP Lab</h4>
+<div id="mdpnpscenariostabbar" class="tabbar">
+	<label data-name="tab1" class="tab selectedTab">Scenario 1</label>
+	<label data-name="tab2" class="tab">Scenario 2</label>
+	<label data-name="tab3" class="tab">Scenario 3</label>
+</div>
 
+<div id="mdpnpscenariostabs">
+<div id="tab1">
 <span><b>Scenario 1: Rapid Transfusion System</b></span><br/>
 
 <table style="border:1px solid black">
@@ -104,7 +110,9 @@ QR codes could be attached to medical devices to point to online resources (i.e.
 		</td>
 	</tr>
 </table>
+</div>
 
+<div id="tab2" class="hidden">
 <span><b>Scenario 2:  Ventilator</b></span><br/>
 <table>
 	<tr>
@@ -114,7 +122,9 @@ QR codes could be attached to medical devices to point to online resources (i.e.
 		<td>Ventilator demo</td>
 	</tr>
 </table>
+</div>
 
+<div id="tab3" class="hidden">
 <span><b>Scenario 3: QR codes in disposables</b></span><br/>
 
 <p>
@@ -123,7 +133,8 @@ QR codes are placed in disposable items, to warn about a certain condition or to
 
 <p> If the drug is unfamiliar to the clinician, she can scan the QR code and the code will link her to a website depicting how to properly prepare and administer the drug. The cartridge packaging information could lead to a tutorial explaining how to replace the cartridge and set up the device.
 </p>
-
+</div>
+</div>
 
 
 <!-- pictures + links to demos 1, 2 and 3 (apollo, belmont + displsable) -->
@@ -190,22 +201,35 @@ $(document).ready(function() {
 
    //On chaging the select-size option
    $('#sizeoption').change(function (e) {
-   	e.preventDefault();
-   	qrCodeObjectProperties = {
-   		text:  $('#text').val(),
-	    width: $('#sizeoption').val(),
-	    height: $('#sizeoption').val(),
-	    colorDark : "#000000",
-	    colorLight : "#ffffff",
-	    correctLevel : QRCode.CorrectLevel.H
-   }
-   // =Diego on 09/29/2015 For some reason I still haven't figured out yet, .clear() does not 
-   // work properly to clear the canvas created on the div (so the img of the QR code is not 'resizing').
-   //I am using jQuery to manually clear the content of the div and then place a new qrcode img. 
-    // qrCode.clear();  
-    // qrCode.makeCode(qrCodeObjectProperties);
-    $('#qrcode').empty();
-    qrCode = new QRCode("qrcode", qrCodeObjectProperties);
+	   	e.preventDefault();
+	   	qrCodeObjectProperties = {
+	   		text:  $('#text').val(),
+		    width: $('#sizeoption').val(),
+		    height: $('#sizeoption').val(),
+		    colorDark : "#000000",
+		    colorLight : "#ffffff",
+		    correctLevel : QRCode.CorrectLevel.H
+	   }
+	   // =Diego on 09/29/2015 For some reason I still haven't figured out yet, .clear() does not 
+	   // work properly to clear the canvas created on the div (so the img of the QR code is not 'resizing').
+	   //I am using jQuery to manually clear the content of the div and then place a new qrcode img. 
+	    // qrCode.clear();  
+	    // qrCode.makeCode(qrCodeObjectProperties);
+	    $('#qrcode').empty();
+	    qrCode = new QRCode("qrcode", qrCodeObjectProperties);
+   });
+
+   $('#mdpnpscenariostabbar').on("click", function(event){
+   		 var clikedTab = $(event.target);
+   		 var name = clikedTab.data('name');
+
+   		 //update tabs style
+   		 $(this).children().removeClass("selectedTab");
+   		 clikedTab.addClass('selectedTab');
+
+   		 //update divs style
+   		 $('#mdpnpscenariostabs').children().addClass("hidden");
+   		 $("#"+name).toggleClass("hidden");
    });
 
 });
