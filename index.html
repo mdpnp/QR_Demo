@@ -149,6 +149,7 @@ select the size of the image
 	<option value="256">256 x 256</option>
 </select>
 
+<span id="qrcodeinfo"></span>
 </p>
 
 <div id="qrcode"></div>
@@ -178,10 +179,12 @@ $(document).ready(function() {
    qrCode = new QRCode("qrcode", qrCodeObjectProperties);
 
    //on introducing more text on the field
-   $('#text').keydown(function (e) {
+   $('#text').keyup(function (e) {
 	  // if (e.which == 13) {//detect 'enter' event 8 is Backspace (https://css-tricks.com/snippets/javascript/javascript-keycodes/)
+	  	var $text = $('#text').val();
 	    qrCode.clear();
-	    qrCode.makeCode($('#text').val()); // make another code.
+	    qrCode.makeCode($text); // make another code.
+	    $('#qrcodeinfo').text("The QR code says: "+$text )
 	  // }
    });
 
