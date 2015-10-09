@@ -7,6 +7,7 @@
 <body>
 
 <!-- scripts -->
+
 <!-- http://davidshimjs.github.io/qrcodejs/ -->
 <!-- <script type="text/javascript" src="./assets/libs/qrcode.js"></script> -->
 <script type="text/javascript" src="./assets/libs/qrcode.min.js"></script>
@@ -14,6 +15,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.js"></script>
 <!-- handlebars -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.3/handlebars.min.js"></script>
+
+<script type="text/javascript" src="./functions.js"></script>
 
 
 <h1>QR Codes for Medical Device Point-of-Care Product Information</h1>
@@ -89,9 +92,9 @@ QR codes could be attached to medical devices to point to online resources (i.e.
 
 <div id="mdpnpscenariostabs">
 <div id="tab1">
-<span><b>Scenario 1: Rapid Transfusion System</b></span><br/>
+<span style="text-decoration:underline"><b>Scenario 1: Rapid Transfusion System</b></span><br/>
 
-<table style="border:1px solid black">
+<table>
 	<tr>
 		<td>
 			<p>
@@ -113,7 +116,7 @@ QR codes could be attached to medical devices to point to online resources (i.e.
 </div>
 
 <div id="tab2" class="hidden">
-<span><b>Scenario 2:  Ventilator</b></span><br/>
+<span style="text-decoration:underline"><b>Scenario 2:  Ventilator</b></span><br/>
 <table>
 	<tr>
 		<td><a href="./ventilator.html"><img src="./assets/img/lab1.png" style="width:40%;height:40%;" alt="QR Code attached to a ventilator @ MD Pnp's lab"></a></td>
@@ -124,8 +127,8 @@ QR codes could be attached to medical devices to point to online resources (i.e.
 </table>
 </div>
 
-<div id="tab3" class="hidden">
-<span><b>Scenario 3: QR codes in disposables</b></span><br/>
+<div id="tab3" class="hidden" >
+<span style="text-decoration:underline"><b>Scenario 3: QR codes in disposables</b></span><br/>
 
 <p>
 QR codes are placed in disposable items, to warn about a certain condition or to explain how to replace the disposable. QR codes would alert of components or materials that could jeopardize patients with allergies (i.e. a mask containing latex) or could point to tutorials showing how to replace the disposable part (i.e. in cartridges or drugs packaging).
@@ -139,7 +142,7 @@ QR codes are placed in disposable items, to warn about a certain condition or to
 
 <!-- pictures + links to demos 1, 2 and 3 (apollo, belmont + displsable) -->
 
-<h3>Potential Benefits</h3>
+<h3>Potential Benefits of point-of-care product information</h3>
 <ul>
 	<li>Reduce paper in clinical care environment</li>
 	<li>Reduced product costs</li>
@@ -220,17 +223,9 @@ $(document).ready(function() {
    });
 
    $('#mdpnpscenariostabbar').on("click", function(event){
-   		 var clikedTab = $(event.target);
-   		 var name = clikedTab.data('name');
-
-   		 //update tabs style
-   		 $(this).children().removeClass("selectedTab");
-   		 clikedTab.addClass('selectedTab');
-
-   		 //update divs style
-   		 $('#mdpnpscenariostabs').children().addClass("hidden");
-   		 $("#"+name).toggleClass("hidden");
-   });
+   	displayTabBar(event);
+   }
+   	);
 
 });
 </script>
