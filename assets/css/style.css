@@ -1,8 +1,4 @@
 body{
-	width: 80%;
-	margin-left: auto;
-	margin-right: auto;
-
     background-image: linear-gradient(to bottom, #BBD5DC, #E8F6FA 100%);
 }
 
@@ -277,3 +273,18 @@ h1{
 	background-image:-webkit-linear-gradient(bottom, rgb(204, 0, 0) 1%, rgb(255, 0, 0) 51%);
 	background-image:-ms-linear-gradient(bottom, rgb(204, 0, 0) 1%, rgb(255, 0, 0) 51%);
 }
+
+
+/************** 
+=Footer
+***************/
+#footer {
+
+    margin-top: 100px;
+    padding-bottom: 20px;
+    border-top: 1px solid #DDF;
+    background-color: #F7FCFF;
+    color: #333;
+    text-align: center;
+}
+
