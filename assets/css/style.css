@@ -99,6 +99,7 @@ h1{
 /* Button foundation : Structure, Sizing, Style*/
 .btn {
 	display:inline-block;
+	width: 100%;
 	zoom:1;
 	vertical-align:bottom;
 	text-align:center;
