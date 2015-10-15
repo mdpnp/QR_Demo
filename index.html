@@ -67,7 +67,7 @@ QR codes could be attached to medical devices to point to online resources (i.e.
 
 
 <h3>What are QR Codes?</h3>
-<div >
+<div>
 
 <div style="float:left; width:85%" >
 <p >A <a href="http://en.wikipedia.org/wiki/Qr_code">QR code</a> (abbreviated from Quick Response Code) is the trademark for a type of matrix barcode (or two-dimensional barcode) first designed for the automotive industry in Japan (Invented in 1994). A barcode is a machine-readable optical label that contains information about the item to which it is attached. 
@@ -94,31 +94,56 @@ QR codes could be attached to medical devices to point to online resources (i.e.
 <h3>Use Cases</h3>
 
 <p>Examples of information currently publicly available on the Internet:</p>
-	<span><b>Example 1</b></span> <br/>
-	Shiley tracheostomy tube <a href="http://www.covidien.com/rms/imageServer.aspx?contentID=23689&contenttype=application/pdf&originalFileName=Shiley%20QRG%2010AW0162.pdf" target="_blank">quick reference guide</a>
 
+<div class="usecases">
+<a class="btn btn-small btn-salmon" href="#">Example 1: tracheostomy information</a>
+</div>
+<div>
 
-<p>
-	<span><b>Example 2</b></span> <br/>
-	If you need help interpreting the capnogram, try this YouTube video to learn more about:
 	<ul>
-	<li>The CO2 waveform (alveolar plateau) <a href="https://www.youtube.com/watch?v=60_jqz-LCwQ" target="_blank">sloping upward</a> or looking like a "shark fin"</li>
+		<li>Tracheostomy products <a href="http://www.covidien.com/rms/imageServer.aspx?contentID=23690&contenttype=application/pdf&originalFileName=Shiley%20QRG%2010AW0162.pdf">quick reference guide</a></li>
+		<li>Shiley tracheostomy tube 
+	<a href="http://www.covidien.com/imageServer.aspx/doc224582.pdf?contentID=23691&contenttype=application/pdf" target="_blank">quick reference guide</a>		</li>
+		<li>
+			Adult Dual Cannula Tracheostomy <a href="http://www.amms.net/images/Covidien_TrachProduct_Poster.pdf">Tube Selection Guide</a>
+		</li>
+	</ul>
+	<p class="sourcecitation">Source: <a href="http://www.covidien.com/">Covidien</a></p>
+
+	<ul>
+		<li><a href="http://preferredhomecare.com/wp-content/uploads/2014/04/A-guide-for-tracheostomy-care-at-home-PHC-Master_20140522.pdf">A Caregiver Guide</a> for Tracheostomy Care at Home</li>
+	</ul>
+	<p class="sourcecitation">Source <a href="http://preferredhomecare.com/">Preferred Homecare</a></p>
+
+	There are many <a href="http://www.tracheostomy.com/disclaimer.htm">educational websites about tracheostomy</a>, with different kinds of <a href="http://www.tracheostomy.com/resources/index.htm"> resources</a> (articles, links, books, videos) and <a href="http://www.tracheostomy.com/faq/index.htm">FAQs</a> sections to help caregivers to take care of their loved ones.
+</div>
+
+
+<div class="usecases">
+<a class="btn btn-small btn-salmon" href="#">Example 2: interpreting a capnogram</a>
+</div>
+<div>	
+If you need help interpreting the capnogram, try this YouTube video to learn more about it:
+	<ul>
+	<li>Why the CO2 waveform (alveolar plateau) is <a href="https://www.youtube.com/watch?v=60_jqz-LCwQ" target="_blank">sloping upward</a> or looking like a "shark fin"</li>
 	<li>Why the CO2 baseline is <a href="https://www.youtube.com/watch?v=ReZcqPAzFCA" target="_blank">elevated</a> and the CO2 absorbent may be depleted</li>
 		
 	</ul>
-	
-</p>
+</div>	
 
-<p>
-	<span><b>Example 3</b></span> <br/>
-	Supralaryngeal airway insertion <a href="https://www.youtube.com/watch?v=96e46PyARaU" target="_blank">video</a>
-</p>
+<div class="usecases">
+<a class="btn btn-small btn-salmon" href="#">Example 3: supralaryngeal airway insertion</a>
+</div>
+<div>
+	Educational video for the demonstration of the correct insertion technique of a <a href="https://www.youtube.com/watch?v=96e46PyARaU" target="_blank">supralaryngeal airway</a>
+</div>
 
-<p>
-	<span><b>Example 4</b></span> <br/>
+<div class="usecases">
+<a class="btn btn-small btn-salmon" href="#">Example 4: learning resources</a>
+</div>
+<div>
 	Simulators or learning resources. By using a simulator clinicians could be trained on the usage of certain devices, without needing direct access to the physical object.
-</p>
-
+</div>
 
 <h4>Examples of Use Cases from Massachusetts General Hospital, MD PnP Lab</h4>
 <div id="mdpnpscenariostabbar" class="tabbar">
@@ -238,6 +263,8 @@ select the size of the image
 // var qrCode = new QRCode("qrcode");
 $(document).ready(function() {
 
+	$('#usecases div').hide();
+
 	var DEFAULT_QRCODE_SIZE = 128;
 
    // var qrCode = new QRCode("qrcode", $('#text').val());
@@ -281,10 +308,18 @@ $(document).ready(function() {
 	    qrCode = new QRCode("qrcode", qrCodeObjectProperties);
    });
 
+
+//For the "tabbed panel" of the MD PnP Use cases.
    $('#mdpnpscenariostabbar').on("click", function(event){
    	displayTabBar(event);
-   }
-   	);
+   });
+
+
+//showtoggle for the Use Cases: currently available on the Internet.
+   $('.usecases').click(function(event){
+ 	event.preventDefault();
+ 	$(this).next().fadeToggle('fast');
+   });
 
 });
 </script>
