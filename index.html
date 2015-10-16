@@ -259,7 +259,7 @@ with the device.
 <p>To generate a QR code, type your text on the text box below and click enter</p>
 
 
-<p><input id="text" type="text" value="http://mdpnp.org" style="width:80%" /> <br/>
+<p><input id="text" type="text" value="http://mdpnp.org" style="width:80%;margin-bottom:5px" /> <br/>
 select the size of the image
 <select id="sizeoption">
 	<option value="64">64 x 64</option>
@@ -267,7 +267,11 @@ select the size of the image
 	<option value="256">256 x 256</option>
 </select>
 
-<span id="qrcodeinfo"></span>
+The QR code says:  <span style="background:#BBD5DC" id="qrcodeinfo"></span>
+<script type="text/javascript">
+	var $text = $('#text').val();
+	$('#qrcodeinfo').text($text);
+</script>
 </p>
 
 <div id="qrcode"></div>
@@ -314,7 +318,8 @@ $(document).ready(function() {
 	  	var $text = $('#text').val();
 	    qrCode.clear();
 	    qrCode.makeCode($text); // make another code.
-	    $('#qrcodeinfo').text("The QR code says: "+$text )
+	    // $('#qrcodeinfo').text("The QR code says: "+$text )
+	    $('#qrcodeinfo').text($text)
 	  // }
    });
 
