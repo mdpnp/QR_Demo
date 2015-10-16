@@ -5,6 +5,10 @@
 	<link rel="icon" href="./assets/img/qrcodedemo.ico.png" type="image/x-icon"/>
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css" media="screen" />
 
+		<!-- font awesome and bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
 	<title>MD PnP Infusor QR Code Demonstration</title>
 	
 <!-- jquery -->
@@ -12,9 +16,13 @@
 <!-- handlebars -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.3/handlebars.min.js"></script>
 <script src="assets/templates/disclaimer.tmpl.js"></script>
+<script src="assets/templates/footer.tmpl.js"></script>
+
 </head>
 
 <body>
+
+<div class="container">
 <h1>Welcome to the Fictional Ventilator Point-of-Care resources page <span class="minih1">(Concept Demo)</span></h1>
 
 <span id="disclaimerplaceholder"></span>
@@ -54,6 +62,12 @@
 	<p>	A: The Apollo uses a piston ventilator, which eliminates the need for drive gas. However, the fresh gas flow and anesthetic vapor function similar to the Fabius GS and older Draeger products.  There should always be some fresh gas flow to replace consumed Oxygen and to replenish lost volume from leaks. 
 	</p>
 
+</div>
+<span id="footerplaceholder"></span>
+
+</body>
+
+
 	<script type="text/javascript">
 
 	var msg = 'The Drager Apollo Anesthesia Workstation has been selected to be part of this concept demo because it is one of the devices avaliable at the '+ '<a href="http://mdpnp.org">MD PnP lab</a>'+' in Cambridge, Massachusetts.'
@@ -62,7 +76,8 @@
 		var template = Handlebars.templates['disclaimer.tmpl'];
 		$('#disclaimerplaceholder').append(template({extramessage:msg}));
 
-	</script>
+		var footerTemplate = Handlebars.templates['footer.tmpl'];
+		$('#footerplaceholder').append(footerTemplate);
 
-</body>
+	</script>
 </html>
