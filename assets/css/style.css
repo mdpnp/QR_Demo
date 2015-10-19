@@ -51,15 +51,16 @@ h1{
 
 .tabbar{
 	border-bottom: 1px solid #A8C0C6; 
-	padding:15px 0px 5px;
+	padding-top:15px;
 	margin-bottom: 10px;
 }
 
 .tab{
 	text-align:center;
 	margin-top: 15px;
+	margin-bottom: 0px;
 	padding: 5px 10px;
-	border-radius:3px;
+	border-radius:5px 5px 0px 0px;
 	text-decoration:none;
 	font-weight:900;
 	font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -75,10 +76,8 @@ h1{
 }
 
 .selectedTab{
-	  /*background-color: #fff; /*#FF8080;*/
 	border-radius : 5px  5px 0px 0px;
 	color:#FFF;
-	/*border:1px solid #0082BE;*/
 	background:#BBD5DC;
 }
 
