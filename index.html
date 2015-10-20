@@ -30,22 +30,19 @@
 <!-- <script type="text/javascript" src="./assets/libs/qrcode.js"></script> -->
 <script type="text/javascript" src="./assets/libs/qrcode.min.js"></script>
 
+<!-- jQuery CDN and fallback to local -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
-<!--fallback for jQuery CDN -->
-<script> 
-if (typeof jQuery == 'undefined') {
-    document.write(unescape("%3Cscript src='./assets/libs/jquery-2.1.4.min.js' type='text/javascript'%3E%3C/script%3E"));
-}
-</script>
+<script>window.jQuery || document.write('<script src="./assets/libs/jquery-2.1.4.min.js">\x3C/script>')</script>
 
-<!-- handlebars -->
+<!-- handlebars  and fallback to local-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.3/handlebars.min.js"></script>
-<!--fallback for Handlebars CDN -->
-<script> 
-if (typeof Handlebars == 'undefined') {
-    document.write(unescape("%3Cscript src='./assets/libs/handlebars.runtime-v4.0.2.js' type='text/javascript'%3E%3C/script%3E"));
-}
-</script>
+<script>window.Handlebars || document.write('<script src="./assets/libs/handlebars.runtime-v4.0.2.js">\x3C/script>')</script>
+
+<!-- NOTE: The local fallback for Twitter-bootstrap and Font-Awesome need to be AFTER the jQuery one, since it is using the jQuery $ shorthand -->
+<!-- NOTE2: http://stackoverflow.com/a/12659921/3961519 If the modal plugin is ever renamed or removed this check would always fail -->
+<!-- font awesome and bootstrap CDNs plus local fallbacks  -->
+<script>    $.fn.modal || document.write('<link rel="stylesheet" type="text/css" href="./assets/css/font-awesome.min.css" />')</script>
+<script>    $.fn.modal || document.write('<link rel="stylesheet" type="text/css" href="./assets/css/bootstrap.min.css" />')</script>
 
 
 <script src="assets/templates/footer.tmpl.js"></script>

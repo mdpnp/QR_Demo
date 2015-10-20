@@ -5,29 +5,27 @@
 	<link rel="icon" href="./assets/img/qrcodedemo.ico.png" type="image/x-icon"/>
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css" media="screen" />
 
-		<!-- font awesome and bootstrap -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-
 	<title>MD PnP Infusor QR Code Demonstration</title>
 	
-	<!-- jquery -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.js"></script>
-	<!--fallback for jQuery CDN -->
-	<script> 
-	if (typeof jQuery == 'undefined') {
-	    document.write(unescape("%3Cscript src='./assets/libs/jquery-2.1.4.min.js' type='text/javascript'%3E%3C/script%3E"));
-	}
-	</script>
 
-	<!-- handlebars -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.3/handlebars.min.js"></script>
-	<script> 
-	if (typeof Handlebars == 'undefined') {
-	    document.write(unescape("%3Cscript src='./assets/libs/handlebars.runtime-v4.0.2.js' type='text/javascript'%3E%3C/script%3E"));
-	}
-	</script>
-	
+<!-- jQuery CDN And fallback to local -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+<script>window.jQuery || document.write('<script src="./assets/libs/jquery-2.1.4.min.js">\x3C/script>')</script>
+
+<!-- handlebars  and fallback to local-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.3/handlebars.min.js"></script>
+<script>window.Handlebars || document.write('<script src="./assets/libs/handlebars.runtime-v4.0.2.js">\x3C/script>')</script>
+
+<!-- NOTE: The local fallback for Twitter-bootstrap and Font-Awesome need to be AFTER the jQuery one, since it is using the jQuery $ shorthand -->
+<!-- NOTE2: http://stackoverflow.com/a/12659921/3961519 If the modal plugin is ever renamed or removed this check would always fail -->
+<!-- font awesome and bootstrap CDNs plus local fallbacks  -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<script>    $.fn.modal || document.write('<link rel="stylesheet" type="text/css" href="./assets/css/font-awesome.min.css" />')</script>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script>    $.fn.modal || document.write('<link rel="stylesheet" type="text/css" href="./assets/css/bootstrap.min.css" />')</script>
+
+<!-- Handlebars precompiled templates -->
 <script src="assets/templates/disclaimer.tmpl.js"></script>
 <script src="assets/templates/footer.tmpl.js"></script>
 
