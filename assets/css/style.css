@@ -91,6 +91,7 @@ h1{
 
 .usecases + div {
 	display: none;
+	margin-top: 10px;
 	background-image: linear-gradient(to bottom, #BBD5DC, #EAF7FA 100%);
 }
 
